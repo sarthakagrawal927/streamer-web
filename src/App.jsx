@@ -3,7 +3,7 @@ import "./App.scss";
 function App() {
     return (
         <div className='App'>
-            <div>Streamer</div>
+            <div className='text-5xl'>Streamer</div>
         </div>
     );
 }
