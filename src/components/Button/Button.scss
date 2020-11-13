@@ -1,0 +1,10 @@
+.btn {
+  width: 5.5em;
+  height: 2.5em;
+  border-radius: 0.2rem;
+  color: white;
+  font-weight: 600;
+  &-primary {
+    background-color: #4e5eef;
+  }
+}
