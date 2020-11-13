@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../Button/Button";
 import Input from "../Input/Input";
+import ErrorInfo from "../ErrorInfo/ErrorInfo";
 import { useForm } from "../../hooks/useForm";
 import "./Form.scss";
 const Form = () => {
+    const [errors, setErrors] = useState({
+        username: "",
+        password: "",
+    });
     const initialState = {
         username: "",
         password: "",
@@ -13,7 +18,22 @@ const Form = () => {
         initialState
     );
     function loginUserCallback() {
-        console.log(values);
+        setErrors({});
+        console.log("Submit clicked.");
+        if (values.username === "") {
+            setErrors({ ...errors, username: "Invalid username" });
+            console.log("Errors", errors);
+        }
+        if (values.password === "") {
+            setErrors({ ...errors, password: "Invalid password" });
+            console.log("Errors", errors);
+        }
+        if (errors.username || errors.password) {
+            console.log("Error: ", errors);
+            return;
+        }
+        // TODO: Store in the database
+        console.log("Submit Values: ", values);
     }
     return (
         <div className='w-full form-container'>
@@ -29,6 +49,8 @@ const Form = () => {
                     value={values.username}
                     onChange={onChange}
                 />
+                {/* TODO: Fix error handling -> does not submit if previous submissions had errors and submits if first submission was empty . */}
+                {errors.username && <ErrorInfo text={errors.username} />}
                 <Input
                     label='Password'
                     placeholder='Password'
@@ -37,10 +59,13 @@ const Form = () => {
                     value={values.password}
                     onChange={onChange}
                 />
-
+                {errors.password && <ErrorInfo text={errors.password} />}
                 <div className='text-center submit-button'>
                     <Button type='submit' text='SUBMIT' />
                 </div>
+                {/* uncomment below lines to show values while debugging */}
+                {/* <pre>{JSON.stringify(values)}</pre> */}
+                {/* <pre>{JSON.stringify(errors)}</pre> */}
             </form>
         </div>
     );
