@@ -1,10 +1,13 @@
 .btn {
-  width: 5.5em;
-  height: 2.5em;
-  border-radius: 0.2rem;
-  color: white;
-  font-weight: 600;
-  &-primary {
-    background-color: #4e5eef;
-  }
+    width: 6em;
+    height: 2.8em;
+    border-radius: 0.2rem;
+    color: white;
+    font-weight: 600;
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    box-shadow: 5px 5px 4px rgba(183, 183, 183, 0.25);
+    &-primary {
+        background-color: #4e5eef;
+    }
 }
