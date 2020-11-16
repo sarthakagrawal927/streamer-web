@@ -61,7 +61,7 @@ const Form = () => {
                 />
                 {errors.password && <ErrorInfo text={errors.password} />}
                 <div className='text-center submit-button'>
-                    <Button type='submit' text='SUBMIT' />
+                    <Button type='submit' text='SUBMIT' primary={true} />
                 </div>
                 {/* uncomment below lines to show values while debugging */}
                 {/* <pre>{JSON.stringify(values)}</pre> */}
