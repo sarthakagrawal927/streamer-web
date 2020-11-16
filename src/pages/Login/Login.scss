@@ -1,22 +1,20 @@
-body {
-    background-color: #4e5eef;
-}
-
-.container {
+.login-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-
+    background-color: #4e5eef;
+    width: 100vw;
+    height: 100vh;
     &-1 {
+        margin-bottom: 8em;
         display: flex;
-        margin-top: 2%;
-
         justify-content: center;
         align-items: center;
         flex-direction: column;
     }
     &-2 {
-        margin-top: 12%;
+        margin-top: 6em;
+        margin-right: 6em;
 
         flex-direction: column;
         .form {
@@ -30,5 +28,5 @@ body {
 }
 .logo-text {
     font-size: 2.7rem;
-    max-width: 25vw;
+    max-width: 28vw;
 }
