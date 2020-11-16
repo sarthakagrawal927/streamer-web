@@ -1,3 +1,25 @@
 .logout-container {
-    background-color: #fb8a20;
+    padding: 5em 4em;
+    &-heading {
+        font-family: "Roboto", sans-serif;
+        font-weight: 500;
+        font-size: 3rem;
+    }
+}
+.sub-container {
+    width: 70vw;
+    text-align: center;
+    margin-top: 3em;
+    &-heading {
+        font-family: "Poppins", sans-serif;
+        font-style: normal;
+        font-weight: 200;
+        font-size: 1.8em;
+    }
+    &-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-top: 3.5em;
+    }
 }
