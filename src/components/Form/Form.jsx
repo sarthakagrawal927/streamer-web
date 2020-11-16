@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import Button from "../Button/Button";
 import Input from "../Input/Input";
 import ErrorInfo from "../ErrorInfo/ErrorInfo";
 import { useForm } from "../../hooks/useForm";
 import "./Form.scss";
 const Form = () => {
+    const history = useHistory();
     const [errors, setErrors] = useState({
         username: "",
         password: "",
@@ -34,6 +36,7 @@ const Form = () => {
         }
         // TODO: Store in the database
         console.log("Submit Values: ", values);
+        history.push("/home");
     }
     return (
         <div className='w-full form-container'>
