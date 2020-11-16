@@ -7,7 +7,7 @@ import "./Home.scss";
 const dashboardIcon = "/assets/svg/dashboard.svg";
 const leftArrow = "/assets/svg/left-arrow.svg";
 const Home = () => {
-    const [activeItem, setActiveItem] = useState("");
+    const [activeItem, setActiveItem] = useState("dashboard");
     const path = window.location.pathname;
     console.log(path);
     return (
