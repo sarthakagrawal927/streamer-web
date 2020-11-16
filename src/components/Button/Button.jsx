@@ -1,12 +1,12 @@
 import React from "react";
 import "./Button.scss";
-const Button = ({ text, type, primary }) => {
+const Button = ({ text, type, primary, onClick }) => {
     return primary ? (
-        <button type={type} className='btn btn-primary'>
+        <button type={type} className='btn btn-primary' onClick={onClick}>
             {text}
         </button>
     ) : (
-        <button type={type} className='btn btn-secondary'>
+        <button type={type} className='btn btn-secondary' onClick={onClick}>
             {text}
         </button>
     );
