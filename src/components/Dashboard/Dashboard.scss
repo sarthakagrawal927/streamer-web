@@ -1,3 +1,59 @@
-.dashboard-container {
-    background-color: #36b36c;
+body {
+    overflow: hidden;
+}
+.dashboard {
+    &-container {
+        padding: 5em 4em;
+        overflow: hidden;
+    }
+    &-main-heading {
+        font-family: "Roboto", sans-serif;
+        font-weight: 500;
+        font-size: 3rem;
+    }
+    &-sub-heading {
+        font-family: "Roboto", sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 1.5rem;
+        color: #a5a5a5;
+        margin-top: 10px;
+    }
+    &-dropdown {
+        margin-top: 3em;
+    }
+}
+.table {
+    &-headers {
+        margin-top: 3em;
+        width: 65vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        font-size: 1.2rem;
+        color: #a5a5a5;
+    }
+    &-data {
+        scroll-behavior: smooth;
+        margin-top: 2em;
+        overflow-y: auto;
+        height: 400px;
+    }
+    &-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin-top: 2em;
+    }
+    &-cell {
+        width: 150px;
+        text-align: center;
+        font-family: "Poppins", sans-serif;
+        font-size: 1.3rem;
+    }
+}
+.column-heading {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.3rem;
+    color: #a5a5a5;
 }
