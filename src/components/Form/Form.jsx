@@ -39,36 +39,46 @@ const Form = () => {
         history.push("/home");
     }
     return (
-        <div className='w-full form-container'>
-            <form
-                className='bg-white rounded px-12  pt-12  pb-12 mb-1'
-                onSubmit={onSubmit}>
-                <h1 className='text-5xl mb-2 font-normal'>Login</h1>
-                <Input
-                    label='Username'
-                    placeholder='Username'
-                    name='username'
-                    type='text'
-                    value={values.username}
-                    onChange={onChange}
-                />
-                {/* TODO: Fix error handling -> does not submit if previous submissions had errors and submits if first submission was empty . */}
-                {errors.username && <ErrorInfo text={errors.username} />}
-                <Input
-                    label='Password'
-                    placeholder='Password'
-                    name='password'
-                    type='password'
-                    value={values.password}
-                    onChange={onChange}
-                />
-                {errors.password && <ErrorInfo text={errors.password} />}
-                <div className='text-center submit-button'>
-                    <Button type='submit' text='SUBMIT' primary={true} />
+        <div className='form-container'>
+            <form onSubmit={onSubmit}>
+                <div className='form-content'>
+                    <h1>Login</h1>
+                    <div className='form-input'>
+                        <Input
+                            label='Username'
+                            placeholder='Username'
+                            name='username'
+                            type='text'
+                            value={values.username}
+                            onChange={onChange}
+                        />
+                        {/* TODO: Fix error handling -> does not submit if previous submissions had errors and submits if first submission was empty . */}
+                        {errors.username && (
+                            <ErrorInfo text={errors.username} />
+                        )}
+                        <Input
+                            label='Password'
+                            placeholder='Password'
+                            name='password'
+                            type='password'
+                            value={values.password}
+                            onChange={onChange}
+                        />
+                        {errors.password && (
+                            <ErrorInfo text={errors.password} />
+                        )}
+                        <div className='submit-button'>
+                            <Button
+                                type='submit'
+                                text='SUBMIT'
+                                primary={true}
+                            />
+                        </div>
+                    </div>
+                    {/* uncomment below lines to show values while debugging */}
+                    {/* <pre>{JSON.stringify(values)}</pre> */}
+                    {/* <pre>{JSON.stringify(errors)}</pre> */}
                 </div>
-                {/* uncomment below lines to show values while debugging */}
-                {/* <pre>{JSON.stringify(values)}</pre> */}
-                {/* <pre>{JSON.stringify(errors)}</pre> */}
             </form>
         </div>
     );

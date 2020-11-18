@@ -1,9 +1,9 @@
-import "./App.scss";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Showcase from "./pages/Showcase/Showcase";
+import "./App.scss";
 
 function App() {
     return (

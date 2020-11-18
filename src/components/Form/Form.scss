@@ -1,11 +1,23 @@
 .form-container {
     box-shadow: 10px 10px 30px rgba(69, 69, 69, 0.25);
+    width: 100%;
 }
 form {
+    background-color: white;
+    border-radius: 10px;
+    width: 26em;
+    height: 26em;
+    padding: 3em 3em;
     h1 {
         font-family: "Roboto", sans-serif;
+        font-size: 3rem;
+        margin-bottom: 0.3em;
     }
     .submit-button {
         margin-top: 42px;
+        text-align: center;
+    }
+    .form-content {
+        margin-top: 2em;
     }
 }

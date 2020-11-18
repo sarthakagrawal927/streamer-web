@@ -11,9 +11,7 @@ const Login = () => {
                     src='/assets/images/StreamerIcon.png'
                     alt='Streamer Logo'
                 />
-                <h1 className='text-white text-center logo-text'>
-                    Streamer Monitoring Portal
-                </h1>
+                <h1 className='logo-text'>Streamer Monitoring Portal</h1>
             </div>
             <div className='login-container-2'>
                 <Form />
