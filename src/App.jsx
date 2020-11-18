@@ -1,11 +1,13 @@
+
 import React, { useState } from "react";
-import "./App.scss";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import UserContext from "./context/userContext";
+import "./App.scss";
 
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Showcase from "./pages/Showcase/Showcase";
+import "./App.scss";
 
 function App() {
   const [userData, setUserData] = useState({

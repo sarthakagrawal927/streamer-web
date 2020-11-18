@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../Button/Button";
 import { useHistory } from "react-router-dom";
 import "./Logout.scss";
-const Logout = () => {
+const Logout = ({ resetActiveTab }) => {
     const history = useHistory();
     const handleConfirm = () => {
         console.log("Logout");
@@ -10,6 +10,7 @@ const Logout = () => {
     };
     const handleDeny = () => {
         console.log("Deny logout.");
+        resetActiveTab();
     };
     return (
         <div className='logout-container'>
