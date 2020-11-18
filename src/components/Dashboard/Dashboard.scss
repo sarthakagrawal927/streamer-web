@@ -1,6 +1,10 @@
+body {
+    overflow: hidden;
+}
 .dashboard {
     &-container {
         padding: 5em 4em;
+        overflow: hidden;
     }
     &-main-heading {
         font-family: "Roboto", sans-serif;
@@ -19,7 +23,7 @@
         margin-top: 3em;
     }
 }
-.custom-table {
+.table {
     &-headers {
         margin-top: 3em;
         width: 65vw;
@@ -30,7 +34,10 @@
         color: #a5a5a5;
     }
     &-data {
+        scroll-behavior: smooth;
         margin-top: 2em;
+        overflow-y: auto;
+        height: 400px;
     }
     &-row {
         display: flex;
@@ -39,7 +46,7 @@
         margin-top: 2em;
     }
     &-cell {
-        width: 120px;
+        width: 150px;
         text-align: center;
         font-family: "Poppins", sans-serif;
         font-size: 1.3rem;

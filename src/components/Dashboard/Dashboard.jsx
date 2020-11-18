@@ -7,7 +7,7 @@ const users = [
         name: "John Doe",
         regNo: 180905470,
         contact: "9792972971",
-        vitals: "OK",
+        vitals: "OKAY",
     },
     {
         name: "John Doe",
@@ -19,13 +19,13 @@ const users = [
         name: "John Doe",
         regNo: 180905470,
         contact: "9792972971",
-        vitals: "OK",
+        vitals: "OKAY",
     },
     {
         name: "John Doe",
         regNo: 180905470,
         contact: "9792972971",
-        vitals: "OK",
+        vitals: "OKAY",
     },
     {
         name: "John Doe",
@@ -37,7 +37,43 @@ const users = [
         name: "John Doe",
         regNo: 180905470,
         contact: "9792972971",
-        vitals: "OK",
+        vitals: "OKAY",
+    },
+    {
+        name: "John Doe",
+        regNo: 180905470,
+        contact: "9792972971",
+        vitals: "OKAY",
+    },
+    {
+        name: "John Doe",
+        regNo: 180905470,
+        contact: "9792972971",
+        vitals: "DANGER",
+    },
+    {
+        name: "John Doe",
+        regNo: 180905470,
+        contact: "9792972971",
+        vitals: "OKAY",
+    },
+    {
+        name: "John Doe",
+        regNo: 180905470,
+        contact: "9792972971",
+        vitals: "OKAY",
+    },
+    {
+        name: "John Doe",
+        regNo: 180905470,
+        contact: "9792972971",
+        vitals: "DANGER",
+    },
+    {
+        name: "John Doe",
+        regNo: 180905470,
+        contact: "9792972971",
+        vitals: "OKAY",
     },
 ];
 
@@ -72,21 +108,32 @@ const Dashboard = () => {
                     imgSrc={uniSvg}
                 />
             </div>
-            <div className='custom-table'>
-                <div className='custom-table-headers'>
+            <div className='table'>
+                <div className='table-headers'>
                     <div>REG NO.</div>
                     <div>NAME</div>
                     <div>CONTACT</div>
-                    <div>VITALS</div>
+                    <div style={{ marginRight: "20px" }}>VITALS</div>
                 </div>
 
-                <div className='custom-table-data'>
+                <div className='table-data'>
                     {users.map(({ name, regNo, contact, vitals }) => (
-                        <div className='custom-table-row'>
-                            <div className='custom-table-cell'>{name}</div>
-                            <div className='custom-table-cell'>{regNo}</div>
-                            <div className='custom-table-cell'>{contact}</div>
-                            <div className='custom-table-cell'>{vitals}</div>
+                        <div className='table-row'>
+                            <div className='table-cell'>{name}</div>
+                            <div className='table-cell'>{regNo}</div>
+                            <div className='table-cell'>{contact}</div>
+                            <div
+                                className='table-cell'
+                                style={{
+                                    marginLeft: "20px",
+                                    color:
+                                        vitals === "DANGER"
+                                            ? "#FF0000"
+                                            : "#84DEAD",
+                                    fontWeight: "bold",
+                                }}>
+                                {vitals}
+                            </div>
                         </div>
                     ))}
                 </div>
