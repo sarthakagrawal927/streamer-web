@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import UserContext from "./context/userContext";
@@ -13,6 +12,7 @@ function App() {
   const [userData, setUserData] = useState({
     isLoggedIn: false,
     isSuper: false,
+    college: " ",
   });
   return (
     <>

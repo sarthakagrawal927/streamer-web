@@ -33,6 +33,7 @@ export const useForm = (callback, initialState = {}) => {
         setUserData({
           isLoggedIn: true,
           isSuperAdmin: res.data.isSuperAdmin,
+          college: res.data.college,
         });
         callback();
       })
