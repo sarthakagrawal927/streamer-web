@@ -129,17 +129,17 @@ const Dashboard = () => {
     { id: 7, name: "ICAS" },
     { id: 8, name: "SOC" },
   ];
-  const handleCollegeChange = (event) => {
-    setSelectedOption(event.target.value);
-    console.log(selectedOption);
-    console.log("filtered");
-    const filteredUsers = users.filter((user) => {
-      console.log(user.college === selectedOption);
-      return user.college === selectedOption;
-    });
-    console.log(filteredUsers);
-    // setUsers(filteredUsers);
-  };
+  // const handleCollegeChange = (event) => {
+  //   setSelectedOption(event.target.value);
+  //   console.log(selectedOption);
+  //   console.log("filtered");
+  //   const filteredUsers = users.filter((user) => {
+  //     console.log(user.college === selectedOption);
+  //     return user.college === selectedOption;
+  //   });
+  //   console.log(filteredUsers);
+  //   // setUsers(filteredUsers);
+  // };
   return (
     <div className='dashboard-container'>
       <div className='dashboard-heading'>
@@ -150,7 +150,7 @@ const Dashboard = () => {
         <div className='dashboard-dropdown'>
           <Dropdown
             options={collegeOptions}
-            onChange={handleCollegeChange}
+            onChange={(e) => setSelectedOption(e.target.value)}
             selectedValue={selectedOption}
             imgSrc={uniSvg}
           />
@@ -169,23 +169,28 @@ const Dashboard = () => {
         </div>
 
         <div className='table-data'>
-          {users.map(({ name, phone, isSafe, regNo, college }) => (
-            <div className='table-row'>
-              <div className='table-cell'>{regNo}</div>
-              <div className='table-cell'>{name}</div>
-              <div className='table-cell'>{phone}</div>
-              <div className='table-cell'>{college}</div>
-              <div
-                className='table-cell'
-                style={{
-                  marginLeft: "20px",
-                  color: isSafe === "DANGER" ? "#FF0000" : "#3ccf7f",
-                  fontWeight: "bold",
-                }}>
-                {isSafe}
+          {users
+            .filter((user) => {
+              if (selectedOption === "ALL") return user;
+              return user.college === selectedOption;
+            })
+            .map(({ name, phone, isSafe, regNo, college }) => (
+              <div className='table-row'>
+                <div className='table-cell'>{regNo}</div>
+                <div className='table-cell'>{name}</div>
+                <div className='table-cell'>{phone}</div>
+                <div className='table-cell'>{college}</div>
+                <div
+                  className='table-cell'
+                  style={{
+                    marginLeft: "20px",
+                    color: isSafe === "DANGER" ? "#FF0000" : "#3ccf7f",
+                    fontWeight: "bold",
+                  }}>
+                  {isSafe}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
     </div>
