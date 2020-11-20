@@ -99,12 +99,15 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await axios.get("/api/usersdata", {
-          headers: {
-            "Content-type": "application/json",
-            Authorization: `Bearer ${token}`,
+        const result = await axios.get(
+          process.env.base_URI + "/api/usersdata",
+          {
+            headers: {
+              "Content-type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
           },
-        });
+        );
         // console.log(result);
         setUsers(result.data);
         // console.log(users);
