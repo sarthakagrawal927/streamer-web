@@ -18,7 +18,7 @@ export const useForm = (callback, initialState = {}) => {
       email: values.username,
       password: values.password,
     };
-    console.log(JSON.stringify(userData));
+    // console.log(JSON.stringify(userData));
     axios
       .post("/api/admins/login", JSON.stringify(userData), {
         headers: {
@@ -28,18 +28,16 @@ export const useForm = (callback, initialState = {}) => {
       .then((res) => {
         const token = res.data.token;
         console.log(token);
-        const isSuper = token.substring(0, 5) === "super";
+        localStorage.setItem("token", token);
+        console.log(localStorage.getItem("token"));
         setUserData({
           isLoggedIn: true,
+          isSuperAdmin: res.data.isSuperAdmin,
         });
-        if (isSuper) {
-          setUserData({
-            isSuper: true,
-          });
-        }
         callback();
       })
       .catch((err) => {
+        console.log(err);
         alert("Invalid Creds");
         <ErrorInfo text='Invalid Creds' />;
       });
