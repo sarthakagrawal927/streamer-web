@@ -20,11 +20,15 @@ export const useForm = (callback, initialState = {}) => {
     };
     // console.log(JSON.stringify(userData));
     axios
-      .post("/api/admins/login", JSON.stringify(userData), {
-        headers: {
-          "Content-type": "application/json",
+      .post(
+        process.env.base_URI + "/api/admins/login",
+        JSON.stringify(userData),
+        {
+          headers: {
+            "Content-type": "application/json",
+          },
         },
-      })
+      )
       .then((res) => {
         const token = res.data.token;
         console.log(token);
