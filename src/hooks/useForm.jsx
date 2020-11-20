@@ -6,6 +6,7 @@ import UserContext from "../context/userContext";
 export const useForm = (callback, initialState = {}) => {
   const [values, setValues] = useState(initialState);
   const { userData, setUserData } = useContext(UserContext);
+  console.log(process.env.REACT_APP_API_URL);
 
   const onChange = (event) => {
     // spread operator so that the remaining values are not overridden by only the current value
@@ -21,7 +22,7 @@ export const useForm = (callback, initialState = {}) => {
     // console.log(JSON.stringify(userData));
     axios
       .post(
-        process.env.base_URI + "/api/admins/login",
+        process.env.REACT_APP_API_URL + "/api/admins/login",
         JSON.stringify(userData),
         {
           headers: {

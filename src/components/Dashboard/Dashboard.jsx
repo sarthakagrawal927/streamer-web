@@ -100,7 +100,7 @@ const Dashboard = () => {
     const fetchData = async () => {
       try {
         const result = await axios.get(
-          process.env.base_URI + "/api/usersdata",
+          process.env.REACT_APP_API_URL + "/api/usersdata",
           {
             headers: {
               "Content-type": "application/json",
