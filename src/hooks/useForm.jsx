@@ -6,6 +6,7 @@ import UserContext from "../context/userContext";
 export const useForm = (callback, initialState = {}) => {
   const [values, setValues] = useState(initialState);
   const { userData, setUserData } = useContext(UserContext);
+  console.log(process.env.REACT_APP_API_URL);
 
   const onChange = (event) => {
     // spread operator so that the remaining values are not overridden by only the current value
@@ -20,11 +21,15 @@ export const useForm = (callback, initialState = {}) => {
     };
     // console.log(JSON.stringify(userData));
     axios
-      .post("/api/admins/login", JSON.stringify(userData), {
-        headers: {
-          "Content-type": "application/json",
+      .post(
+        process.env.REACT_APP_API_URL + "/api/admins/login",
+        JSON.stringify(userData),
+        {
+          headers: {
+            "Content-type": "application/json",
+          },
         },
-      })
+      )
       .then((res) => {
         const token = res.data.token;
         console.log(token);
@@ -33,6 +38,7 @@ export const useForm = (callback, initialState = {}) => {
         setUserData({
           isLoggedIn: true,
           isSuperAdmin: res.data.isSuperAdmin,
+          college: res.data.college,
         });
         callback();
       })

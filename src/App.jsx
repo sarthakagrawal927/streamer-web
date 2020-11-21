@@ -11,6 +11,7 @@ function App() {
     const [userData, setUserData] = useState({
         isLoggedIn: false,
         isSuper: false,
+        college: " ",
     });
     return (
         <>

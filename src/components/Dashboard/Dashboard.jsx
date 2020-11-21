@@ -92,21 +92,25 @@ import "./Dashboard.scss";
 // ];
 
 const Dashboard = () => {
+  const { userData, setUserData } = useContext(UserContext);
+  // console.log(userData.isSuperAdmin);
   const token = localStorage.getItem("token");
   const [users, setUsers] = useState([]);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await axios.get("/api/usersdata", {
-          headers: {
-            "Content-type": "application/json",
-            Authorization: `Bearer ${token}`,
+        const result = await axios.get(
+          process.env.REACT_APP_API_URL + "/api/usersdata",
+          {
+            headers: {
+              "Content-type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
           },
-        });
-        console.log(result);
+        );
+        // console.log(result);
         setUsers(result.data);
-        console.log(users);
+        // console.log(users);
       } catch (err) {
         console.log(err);
       }
@@ -128,50 +132,68 @@ const Dashboard = () => {
     { id: 7, name: "ICAS" },
     { id: 8, name: "SOC" },
   ];
-  const handleCollegeChange = (event) => {
-    setSelectedOption(event.target.value);
-  };
+  // const handleCollegeChange = (event) => {
+  //   setSelectedOption(event.target.value);
+  //   console.log(selectedOption);
+  //   console.log("filtered");
+  //   const filteredUsers = users.filter((user) => {
+  //     console.log(user.college === selectedOption);
+  //     return user.college === selectedOption;
+  //   });
+  //   console.log(filteredUsers);
+  //   // setUsers(filteredUsers);
+  // };
   return (
     <div className='dashboard-container'>
       <div className='dashboard-heading'>
         <div className='dashboard-main-heading'>Dashboard</div>
         <div className='dashboard-sub-heading'>Monitor your campus</div>
       </div>
-      <div className='dashboard-dropdown'>
-        <Dropdown
-          options={collegeOptions}
-          onChange={handleCollegeChange}
-          selectedValue={selectedOption}
-          imgSrc={uniSvg}
-        />
-      </div>
+      {userData.isSuperAdmin ? (
+        <div className='dashboard-dropdown'>
+          <Dropdown
+            options={collegeOptions}
+            onChange={(e) => setSelectedOption(e.target.value)}
+            selectedValue={selectedOption}
+            imgSrc={uniSvg}
+          />
+        </div>
+      ) : (
+        <h1> {userData.college}</h1>
+      )}
 
       <div className='table'>
         <div className='table-headers'>
           <div>REG NO.</div>
           <div>NAME</div>
           <div>CONTACT</div>
+          <div>COLLEGE</div>
           <div style={{ marginRight: "20px" }}>VITALS</div>
         </div>
 
         <div className='table-data'>
-          {users.map(({ name, phone, isSafe, regNo }) => (
-            <div className='table-row'>
-              <div className='table-cell'>{regNo}</div>
-
-              <div className='table-cell'>{name}</div>
-              <div className='table-cell'>{phone}</div>
-              <div
-                className='table-cell'
-                style={{
-                  marginLeft: "20px",
-                  color: isSafe === "DANGER" ? "#FF0000" : "#84DEAD",
-                  fontWeight: "bold",
-                }}>
-                {isSafe}
+          {users
+            .filter((user) => {
+              if (selectedOption === "ALL") return user;
+              return user.college === selectedOption;
+            })
+            .map(({ name, phone, isSafe, regNo, college }) => (
+              <div className='table-row'>
+                <div className='table-cell'>{regNo}</div>
+                <div className='table-cell'>{name}</div>
+                <div className='table-cell'>{phone}</div>
+                <div className='table-cell'>{college}</div>
+                <div
+                  className='table-cell'
+                  style={{
+                    marginLeft: "20px",
+                    color: isSafe === "DANGER" ? "#FF0000" : "#3ccf7f",
+                    fontWeight: "bold",
+                  }}>
+                  {isSafe}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
         </div>
       </div>
     </div>
