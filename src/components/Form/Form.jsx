@@ -6,38 +6,37 @@ import ErrorInfo from "../ErrorInfo/ErrorInfo";
 import { useForm } from "../../hooks/useForm";
 import "./Form.scss";
 const Form = () => {
-  const history = useHistory();
-  const [errors, setErrors] = useState({
-    username: "",
-    password: "",
-  });
-  const initialState = {
-    username: "",
-    password: "",
-  };
-  const { values, onChange, onSubmit } = useForm(
-    loginUserCallback,
-    initialState,
-  );
-  function loginUserCallback() {
-    setErrors({});
-    console.log("Submit clicked.");
-    if (values.username === "") {
-      setErrors({ ...errors, username: "Invalid username" });
-      console.log("Errors", errors);
+    const history = useHistory();
+    const [errors, setErrors] = useState({
+        username: "",
+        password: "",
+    });
+    const initialState = {
+        username: "",
+        password: "",
+    };
+    const { values, onChange, onSubmit } = useForm(
+        loginUserCallback,
+        initialState
+    );
+    function loginUserCallback() {
+        setErrors({});
+        if (values.username === "") {
+            setErrors({ ...errors, username: "Invalid username" });
+            console.log("Errors", errors);
+        }
+        if (values.password === "") {
+            setErrors({ ...errors, password: "Invalid password" });
+            console.log("Errors", errors);
+        }
+        if (errors.username || errors.password) {
+            console.log("Error: ", errors);
+            return;
+        }
+        // TODO: Store in the database
+        // console.log("Submit Values: ", values);
+        history.push("/home");
     }
-    if (values.password === "") {
-      setErrors({ ...errors, password: "Invalid password" });
-      console.log("Errors", errors);
-    }
-    if (errors.username || errors.password) {
-      console.log("Error: ", errors);
-      return;
-    }
-    // TODO: Store in the database
-    // console.log("Submit Values: ", values);
-    history.push("/home");
-  }
     return (
         <div className='form-container'>
             <form onSubmit={onSubmit}>
