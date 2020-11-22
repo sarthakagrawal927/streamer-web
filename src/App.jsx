@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import UserContext from "./context/userContext";
-
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Showcase from "./pages/Showcase/Showcase";
