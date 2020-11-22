@@ -8,6 +8,7 @@ const Contact = () => {
       <div className='navbar-container'>
         <Navbar active='contact' />
       </div>
+      <img className='temp-image' src='/assets/ss/contact.png' alt='' />
     </>
   );
 };
