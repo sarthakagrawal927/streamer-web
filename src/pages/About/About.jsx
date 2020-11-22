@@ -1,13 +1,15 @@
 import React from "react";
+import "./About.scss";
 import Navbar from "../../components/Navbar/Navbar";
-const Showcase = () => {
+
+const About = () => {
   return (
     <>
       <div className='navbar-container'>
-        <Navbar active='home' />
+        <Navbar active='about' />
       </div>
     </>
   );
 };
 
-export default Showcase;
+export default About;

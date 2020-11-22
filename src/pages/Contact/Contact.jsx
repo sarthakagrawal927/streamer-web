@@ -1,13 +1,15 @@
 import React from "react";
+import "./Contact.scss";
 import Navbar from "../../components/Navbar/Navbar";
-const Showcase = () => {
+
+const Contact = () => {
   return (
     <>
       <div className='navbar-container'>
-        <Navbar active='home' />
+        <Navbar active='contact' />
       </div>
     </>
   );
 };
 
-export default Showcase;
+export default Contact;
