@@ -14,7 +14,7 @@ const Home = () => {
 
     useEffect(() => {
         if (!userData.isLoggedIn) history.push("/login");
-    }, []);
+    }, [userData.isLoggedIn, history]);
 
     const resetActiveTab = () => {
         setActiveItem("dashboard");

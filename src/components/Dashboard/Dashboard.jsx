@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import axios from "axios";
 import UserContext from "../../context/userContext";
 import Dropdown from "../Dropdown/Dropdown";
@@ -8,24 +8,25 @@ const Dashboard = () => {
     const { userData } = useContext(UserContext);
     const token = localStorage.getItem("token");
     const [users, setUsers] = useState([]);
+    const fetchData = useRef(() => {});
+    fetchData.current = async () => {
+        try {
+            const result = await axios.get(
+                process.env.REACT_APP_API_URL + "/api/usersdata",
+                {
+                    headers: {
+                        "Content-type": "application/json",
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
+            setUsers(result.data);
+        } catch (err) {
+            console.log(err);
+        }
+    };
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const result = await axios.get(
-                    process.env.REACT_APP_API_URL + "/api/usersdata",
-                    {
-                        headers: {
-                            "Content-type": "application/json",
-                            Authorization: `Bearer ${token}`,
-                        },
-                    }
-                );
-                setUsers(result.data);
-            } catch (err) {
-                console.log(err);
-            }
-        };
-        fetchData();
+        fetchData.current();
     }, []);
 
     const uniSvg = "/assets/svg/university.svg";
