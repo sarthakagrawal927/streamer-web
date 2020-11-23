@@ -127,8 +127,8 @@ const Showcase = () => {
                         </div>
                     </div>
                 </section>
-                <h2 className='showcase-section-3-header'>HOW IT WORKS?</h2>
                 <section className='showcase-section-3'>
+                    <h2 className='showcase-section-3-header'>HOW IT WORKS?</h2>
                     <div className='showcase-section-3-content'>
                         <div className='showcase-section-3-content-1'>
                             <h3>
