@@ -8,7 +8,7 @@ const Product = () => {
       <div className='navbar-container'>
         <Navbar active='product' />
       </div>
-      <img className='temp-image' src='/assets/ss/product.png' alt='' />
+      <img className='temp-image' src='/assets/ss/product.png' alt='Product' />
     </>
   );
 };

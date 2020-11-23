@@ -9,7 +9,7 @@ const About = () => {
         <Navbar active='about' />
       </div>
 
-      <img className='temp-image' src='/assets/ss/about.png' alt='' />
+      <img className='temp-image' src='/assets/ss/about.png' alt='About' />
     </>
   );
 };

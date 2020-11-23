@@ -32,8 +32,6 @@ const Contact = () => {
           <p>curiouz.tech@gmail.com</p>
         </div>
       </div>
-
-      {/* <img className='temp-image' src='/assets/ss/contact.png' alt='' /> */}
     </>
   );
 };
