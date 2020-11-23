@@ -1,5 +1,43 @@
 .about-us {
-  background-color: #cbe7ea !important;
-  .heading {
-  }
+    &-container {
+        width: 100vw;
+        height: 100vh;
+        padding: 10em 5em;
+        background-color: #a6f3fb;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    &-content-1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30%;
+    }
+    &-main-heading {
+        font-family: "Poppins", sans-serif;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 3rem;
+        line-height: 8rem;
+
+        color: #6c00c0;
+    }
+    &-sub-heading {
+        font-family: "Poppins", sans-serif;
+        font-style: normal;
+        font-weight: lighter;
+        font-size: 2rem;
+        line-height: 66px;
+        color: #6c00c0;
+    }
+    &-content-2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 60%;
+    }
+    &-text-content {
+        font-size: 1.5rem;
+    }
 }
