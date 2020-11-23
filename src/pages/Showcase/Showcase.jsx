@@ -5,7 +5,7 @@ const Showcase = () => {
     return (
         <>
             <div className='navbar-container'>
-                <Navbar />
+                <Navbar active='home' />
             </div>
             <div className='showcase-container'>
                 <img
@@ -138,7 +138,7 @@ const Showcase = () => {
                             <p>
                                 STREAMER is a Health and Wellness monitoring
                                 smartphone application with vitals monitoring.
-                                Your safety is our responsibilty.
+                                Your safety is our responsibility.
                             </p>
                         </div>
                         <div className='showcase-section-3-phone-screen'>
