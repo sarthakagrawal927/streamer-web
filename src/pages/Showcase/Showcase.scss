@@ -399,6 +399,7 @@ ul {
                 img {
                     width: 300px;
                     height: 578.75px;
+                    transform: scale(0.8);
                     filter: drop-shadow(5px 5px 5px #242424);
                 }
             }
@@ -467,6 +468,7 @@ ul {
                     height: 578.75px;
                     filter: drop-shadow(5px 5px 5px #242424);
                     margin-top: 8em;
+                    transform: scale(0.8);
                 }
             }
         }
@@ -509,7 +511,6 @@ ul {
                 flex-direction: row;
                 justify-content: space-around;
                 width: 50%;
-                transform: scale(0.8);
                 align-items: center;
                 .cards {
                     &-1 {
