@@ -304,19 +304,33 @@ ul {
 @media (max-width: 768px) {
     html {
         font-size: 14px;
+        overflow-x: hidden !important;
+    }
+    body {
+        overflow-x: hidden !important;
     }
     .showcase {
         &-container {
             margin-top: 4em;
             #svg {
                 &-1 {
-                    display: none;
+                    position: absolute;
+                    left: -10em;
+                    top: 0;
+                    scale: 0.5;
                 }
                 &-2 {
-                    display: none;
+                    position: absolute;
+                    left: -18em;
+                    top: 80em;
+                    z-index: -1;
+                    scale: 0.5;
                 }
                 &-3 {
-                    display: none;
+                    position: absolute;
+                    right: -13em;
+                    top: 5em;
+                    scale: 0.4;
                 }
 
                 &-4 {
@@ -329,11 +343,11 @@ ul {
         }
         &-section-1 {
             width: 100%;
-            height: 160vh;
+            height: 150vh;
             padding: 0;
             padding-top: 5em;
             &-header {
-                font-size: 2.5rem;
+                font-size: 3rem;
                 margin: 0 auto;
                 text-align: center;
                 color: #6c00c0;
@@ -361,7 +375,7 @@ ul {
                         }
 
                         .bullet-content {
-                            width: 65%;
+                            width: 50%;
                             margin: 0 auto;
                             text-align: left;
                             li {
@@ -391,7 +405,7 @@ ul {
         }
         &-section-2 {
             width: 100%;
-            height: 180vh;
+            height: 160vh;
             background-color: #4e5eef;
             &-header {
                 font-size: 4rem;
@@ -459,35 +473,24 @@ ul {
 
         &-section-3 {
             width: 100%;
-            height: 100vh;
-            padding: 6em 10em;
+            height: 150vh;
             &-header {
-                width: 532px;
-                height: 96px;
-                font-family: "Poppins", sans-serif;
-                font-style: normal;
-                font-weight: 600;
+                margin-top: 1.5em;
                 font-size: 4rem;
-                line-height: 96px;
                 color: #6c00c0;
-                margin-right: 0;
-                position: relative;
-                left: 1.2em;
-                top: 2em;
+                text-align: center;
             }
             &-content {
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
                 align-items: center;
                 justify-content: space-around;
-                padding-top: 10em;
                 &-1 {
                     display: flex;
                     flex-direction: column;
-                    justify-content: space-between;
-                    height: 500px;
-                    line-height: 2em;
-                    width: 40%;
+                    justify-content: space-around;
+                    height: 36em;
+                    text-align: center;
                     h3 {
                         color: rgb(46, 46, 46);
                         font-size: 2.5rem;
@@ -496,7 +499,7 @@ ul {
                     p {
                         font-family: "Roboto", sans-serif;
                         font-weight: lighter;
-                        font-size: 2rem;
+                        font-size: 1.6rem;
                         color: #646464;
                     }
                 }
@@ -505,25 +508,27 @@ ul {
                 display: flex;
                 flex-direction: row;
                 justify-content: space-around;
-                width: 40%;
+                width: 50%;
+                scale: 0.8;
+                align-items: center;
                 .cards {
                     &-1 {
                         display: flex;
                         flex-direction: column-reverse;
                         justify-content: space-around;
-                        height: 320px;
+                        height: 16em;
                         position: relative;
-                        top: 15em;
+                        top: 4em;
                     }
                     &-2 {
                         display: flex;
                         flex-direction: column;
                         justify-content: space-around;
-                        height: 320px;
+                        height: 16em;
                     }
                     .card {
-                        width: 7em;
-                        height: 8em;
+                        width: 6em;
+                        height: 7em;
                         box-shadow: 4px 4px 4px rgba(218, 218, 218, 0.25);
                         border-radius: 12px;
                         display: flex;
@@ -562,8 +567,7 @@ ul {
                     }
                 }
                 img {
-                    width: 300px;
-                    height: 578.75px;
+                    width: 20em;
                     filter: drop-shadow(5px 5px 5px #242424);
                 }
             }
